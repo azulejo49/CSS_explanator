@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css expl</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
+<style>
+ /*  split window into 4 parts */
+ #right-top { text-align: center; position:fixed; width:50%; height:50%; top:0;   left:0;   background:linear-gradient(90deg, rgb(6, 209, 209) 0%, rgb(53, 182, 49) 28%, rgb(157, 138, 192) 56%, rgb(218, 105, 12) 78%, rgba(0,212,255,1) 100%);}
+#left-top { text-align: center; position:fixed; width:50%; height:50%; top:0;   left:50%; background:linear-gradient(90deg, rgb(13, 196, 209) 0%, rgb(84, 49, 182) 28%, rgb(181, 201, 3) 56%, rgb(12, 218, 105) 78%, rgb(143, 12, 160) 100%);}
+#right-bottom { text-align: center; position:fixed; width:50%; height:50%; top:50%; left:0;   background:linear-gradient(90deg, rgb(212, 158, 7) 0%, rgb(43, 168, 12) 28%, rgb(95, 133, 202) 56%, rgb(12, 218, 156) 78%, rgb(4, 36, 179) 100%);}
+#left-bottom { text-align: center; position:fixed; width:50%; height:50%; top:50%; left:50%; background:linear-gradient(90deg, rgb(101, 209, 13) 0%, rgb(6, 130, 187) 28%, rgb(187, 166, 219) 56%, rgb(197, 218, 12) 78%, rgb(146, 6, 93) 100%);}
+
+#right-bottom img {
+    width: 10vw;
+    display: block;
+    margin: auto;
+    
+}
+
+#opacity-range {
+    width: 50%;
+    background: rgb(185, 13, 45);
+    -webkit-appearance: none;
+}
+
+#opacity-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1vw;
+  height: 2vh;
+  background: rgb(37, 88, 3);
+  cursor: pointer;
+}
+
+.wolf {
+    float: left;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 6%;
+}
+
+.img-o3 {
+    opacity: 0;
+}
+
+#img-o1 {
+    opacity: 0.25;
+}
+
+.card{
+  width: 300px;
+  height: 255px;
+  background: rgb(70, 5, 19);
+  position: relative;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgb(240, 3, 3);
+  display: flex;
+  justify-content: center;
+  margin-left: 15vw;
+}
+
+.card:hover .content{
+  height: 120px;
+}
+.card img{
+  position: relative;
+  border-radius: 20px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  align-items: center;
+  background-position: center;
+}
+
+.content{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 50px;
+  padding: 0.4em 1.5em;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  transform: scale(0.9);
+   color: white;
+   border: 5px solid rgba(202, 18, 18, 0.164);
+   overflow: hidden;
+   transition: all .4s;
+}
+
+
+    @keyframes spinner {
+    from {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  } 
+
+  #stage {
+    margin: 8em;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px;
+  }
+
+  
+  #spinner {
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  #spinner:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
+#spinner img {
+  position: absolute;
+  border: 4px solid rgb(15, 182, 46);
+  background: rgba(190, 18, 18, 0.8);
+  box-shadow: inset 0 0 20px rgba(202, 216, 13, 0.2);
+}
+
+h2 {
+
+  font-family: 'square peg';
+}
+</style>
+<body>
+    <div id="right-top">
+            <h2>BORDER</h2>
+            <div style="width: 40vw; margin: 0 auto;">
+                <div style="border: 4px solid rgb(83, 71, 255);" class="border-div">solid</div>
+                <div style="border: 4px ridge rgb(172, 230, 167);" class="border-div">ridge</div>
+                <div style="border: 4px dashed rgb(154, 184, 24);" class="border-div">dashed</div>
+                <div style="border: 4px double rgb(159, 20, 187);" class="border-div">double</div>
+            </div>
+    </div>
+    <div id="left-top">
+        <h2>TRANSFORM-ANIMATION</h2>
+        <div id="stage" style="padding-left: 180px; height: 160px;">
+            <div id="spinner" style="-webkit-transform-origin: 180px 0 0;">
+            <img style="-webkit-transform: rotateY(0deg) translateX(180px); padding: 0 0 0 160px;" src="kiwi.png" width="200" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-72deg) translateX(180px); padding: 0 0 0 147px;" src="kaka.png" width="213" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-144deg) translateX(180px); padding: 0 0 0 120px;" src="Kākāpō.png" width="240" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-216deg) translateX(180px); padding: 0 0 0 147px;" src="tui.png" width="213" height="160" alt="">
+            <img style="-webkit-transform: rotateY(-288deg) translateX(180px); padding: 0 0 0 122px;" src="kea.png" width="238" height="160" alt="">
+            </div>
+            </div>
+    <div id="left-bottom">
+        <h2>HOVER</h2>
+        <div class="card">
+            <img src="dragon.png" alt="">
+            <div class="content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ipsam tempora, officia, inventore accusantium autem quisquam exercitationem voluptas quia provident? Cupiditate illo sed, et natus ipsum, beatae. Quas eum, molestiae.</p>
+             </div>
+            </div>
+    <div id="right-bottom">
+        <h2>OPACITY</h2>
+        <div class="opacity-slider">
+            0&nbsp;&nbsp;<input type="range" id="opacity-range" min="0" mid1="0.25" mid2="0.75" max="1" value="0.25" step="0.25" oninput="imgOpacity()">&nbsp;&nbsp;1
+        </div>
+        <div class="wolf">
+            <img class="img-o3" src="./wolf.png" alt="">
+        </div>
+        <div class="wolf">
+            <img id="img-o1" src="./wolf.png" alt="">
+        </div>
+        <div class="wolf">
+            <img class="img-o4" src="./wolf.png" alt="">
+        </div>
+    </div>
+    <script>
+
+
+function imgOpacity(opc, img) {
+    opc = document.getElementById("opacity-range").value;
+    img = document.getElementById("img-o1");
+    img.style.opacity = 0 + 1*opc;
+}
+    </script>
+</body>
+</html>
+
+
+
